@@ -10,4 +10,12 @@ function calculateSimpleInterest(principal, rate, time) {
   return (p * r * n) / 100;
 }
 
-module.exports = { calculateSimpleInterest };
+(function (root, factory) {
+  const api = factory();
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = api;
+  }
+  root.calculateSimpleInterest = api.calculateSimpleInterest;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  return { calculateSimpleInterest };
+});
