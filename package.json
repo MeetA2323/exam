@@ -1,0 +1,8 @@
+{
+  "name": "simple-interest-calculator",
+  "version": "1.0.0",
+  "description": "A simple interest calculator web app",
+  "scripts": {
+    "test": "node --test"
+  }
+}

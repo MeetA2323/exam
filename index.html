@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Interest Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f6f8ff, #e6ecff);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #243b53;
+    }
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(36, 59, 83, 0.18);
+      width: min(90vw, 420px);
+    }
+    h1 { margin-top: 0; }
+    label { display: block; margin-top: 0.8rem; font-weight: 600; }
+    input {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.3rem;
+      border: 1px solid #cad2db;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 1rem;
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      background: #4f46e5;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover { background: #4338ca; }
+    .result {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: #eef2ff;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Simple Interest Calculator</h1>
+    <p>Enter the principal, rate, and time to calculate the interest.</p>
+    <label for="principal">Principal (P)</label>
+    <input id="principal" type="number" placeholder="e.g. 1000" />
+
+    <label for="rate">Interest Rate (R %)</label>
+    <input id="rate" type="number" placeholder="e.g. 5" />
+
+    <label for="time">Time in Years (N)</label>
+    <input id="time" type="number" placeholder="e.g. 2" />
+
+    <button id="calculateBtn">Calculate Interest</button>
+    <div class="result" id="result">Result will appear here.</div>
+  </div>
+
+  <script src="calculator.js"></script>
+  <script>
+    const calculateBtn = document.getElementById('calculateBtn');
+    const result = document.getElementById('result');
+
+    calculateBtn.addEventListener('click', () => {
+      const principal = document.getElementById('principal').value;
+      const rate = document.getElementById('rate').value;
+      const time = document.getElementById('time').value;
+
+      const interest = calculateSimpleInterest(principal, rate, time);
+      result.textContent = `Simple Interest = ${interest}`;
+    });
+  </script>
+</body>
+</html>
